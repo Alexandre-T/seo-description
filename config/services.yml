@@ -1,0 +1,61 @@
+imports:
+    - { resource: parameters.yml }
+
+services:
+    alexandret.seodescription.controller:
+        class: alexandret\seodescription\controller\main
+        arguments:
+            - '@config'
+            - '@controller.helper'
+            - '@template'
+            - '@user'
+
+    alexandret.seodescription.service:
+        class: alexandret\seodescription\service
+        arguments:
+            - '@user'
+            - '%alexandret.seodescription.tables.demo_table%'
+
+    alexandret.seodescription.listener:
+        class: alexandret\seodescription\event\main_listener
+        arguments:
+            - '@controller.helper'
+            - '@template'
+        tags:
+            - { name: event.listener }
+
+    alexandret.seodescription.command.demo:
+        class: alexandret\seodescription\console\command\demo
+        arguments:
+            - '@user'
+        tags:
+            - { name: console.command }
+
+    alexandret.seodescription.cron.task.demo:
+        class: alexandret\seodescription\cron\task\demo
+        arguments:
+            - '@config'
+        calls:
+            - [set_name, [cron.task.demo]]
+        tags:
+            - { name: cron.task }
+
+    alexandret.seodescription.notification.type.demo:
+        class: alexandret\seodescription\notification\type\demo
+        shared: false # service MUST not be shared for this to work!
+        arguments:
+            - '@user_loader'
+            - '@dbal.conn'
+            - '@cache.driver'
+            - '@user'
+            - '@auth'
+            - '@config'
+            - '%core.root_path%'
+            - '%core.php_ext%'
+            - '%tables.notification_types%'
+            - '%tables.notifications%'
+            - '%tables.user_notifications%'
+        calls:
+            - [set_controller_helper, [@controller.helper]]
+        tags:
+            - { name: notification.type }

@@ -1,0 +1,29 @@
+{
+    "name": "alexandret/seodescription",
+    "type": "phpbb-extension",
+    "description": "SEO Meta Description Extension",
+    "homepage": "https://github.com/Alexandre-T/seo-description",
+    "version": "1.0.0-dev",
+    "time": "2016-09-02",
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "Alexandre Tranchant",
+            "email": "Alexandre.Tranchant@gmail.com",
+            "homepage": "https://github.com/Alexandre-T/",
+            "role": "Full Stack Developper"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "extra": {
+        "display-name": "SEO Meta Description Extension",
+        "soft-require": {
+            "phpbb/phpbb": ">=3.1.4,<3.2.0@dev"
+        }
+    },
+    "require-dev": {
+        "phing/phing": "2.4.*"
+    }
+}

@@ -1,0 +1,3 @@
+alexandret_seodescription_controller:
+    path: /demo/{name}
+    defaults: { _controller: alexandret.seodescription.controller:handle }
