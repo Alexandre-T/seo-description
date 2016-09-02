@@ -11,11 +11,11 @@ Go to "ACP" > "Customise" > "Extensions" and enable the "SEO Meta Description Ex
 We use Travis-CI as a continuous integration server and phpunit for our unit testing. See more information on the [phpBB development wiki](https://wiki.phpbb.com/Unit_Tests).
 To run the tests locally, you need to install phpBB from its Git repository. Afterwards run the following command from the phpBB Git repository's root:
 
-Windows:
+###Windows:
 
     phpBB\vendor\bin\phpunit.bat -c phpBB\ext\alexandret\seodescription\phpunit.xml.dist
 
-others:
+###others:
 
     phpBB/vendor/bin/phpunit -c phpBB/ext/alexandret/seodescription/phpunit.xml.dist
 
