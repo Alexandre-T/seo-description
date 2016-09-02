@@ -8,7 +8,6 @@
 # For full copyright and license information, please see
 # the docs/CREDITS.txt file.
 #
-
 set -e
 set -x
 
@@ -20,6 +19,7 @@ EXTPATH_TEMP=$3
 mkdir ../../tmp
 cp -R . ../../tmp
 cd ../../
+
 
 # Clone phpBB
 git clone --depth=1 "git://github.com/phpbb/phpbb.git" "phpBB3" --branch=$BRANCH
