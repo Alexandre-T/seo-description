@@ -29,7 +29,7 @@ class service
 
 	public function get_user()
 	{
-		var_dump($this->table_name);
+		//var_dump($this->table_name);
 		return $this->user;
 	}
 }
