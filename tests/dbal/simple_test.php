@@ -49,5 +49,7 @@ class simple_test extends \phpbb_database_test_case
 
 		$this->assertTrue($db_tools->sql_column_exists(USERS_TABLE, 'user_acme'), 'Asserting that column "user_acme" exists');
 		$this->assertFalse($db_tools->sql_column_exists(USERS_TABLE, 'user_acme_demo'), 'Asserting that column "user_acme_demo" does not exist');
+		$this->assertTrue($db_tools->sql_column_exists(FORUMS_TABLE, 'forum_seodescription'), 'Asserting that column "forum_seodescription" exists');
+		$this->assertTrue($db_tools->sql_column_exists(TOPICS_TABLE, 'topic_seodescription'), 'Asserting that column "topic_seodescription" exists');
 	}
 }

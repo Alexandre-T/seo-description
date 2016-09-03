@@ -17,7 +17,7 @@ class install_user_schema extends \phpbb\db\migration\migration
 {
 	public function effectively_installed()
 	{
-		return $this->db_tools->sql_column_exists($this->table_prefix . 'users', 'user_acme');
+		return $this->db_tools->sql_column_exists($this->table_prefix . 'forums', 'forum_seodescription');
 	}
 
 	static public function depends_on()
@@ -38,8 +38,15 @@ class install_user_schema extends \phpbb\db\migration\migration
 				),
 			),
 			'add_columns'	=> array(
+				//@FIXME suppress demo and tests
 				$this->table_prefix . 'users'			=> array(
 					'user_acme'				=> array('UINT', 0),
+				),
+				$this->table_prefix . 'forums'			=> array(
+					'forum_seodescription'				=> array('UINT', 0),
+				),
+				$this->table_prefix . 'topics'			=> array(
+					'topic_seodescription'				=> array('UINT', 0),
 				),
 			),
 		);
@@ -51,6 +58,12 @@ class install_user_schema extends \phpbb\db\migration\migration
 			'drop_columns'	=> array(
 				$this->table_prefix . 'users'			=> array(
 					'user_acme',
+				),
+				$this->table_prefix . 'forums'			=> array(
+					'forum_seodescription',
+				),
+				$this->table_prefix . 'topics'			=> array(
+					'topic_seodescription',
 				),
 			),
 			'drop_tables'		=> array(
