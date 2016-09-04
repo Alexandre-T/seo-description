@@ -43,10 +43,10 @@ class install_user_schema extends \phpbb\db\migration\migration
 					'user_acme'				=> array('UINT', 0),
 				),
 				$this->table_prefix . 'forums'			=> array(
-					'forum_seodescription'				=> array('UINT', 0),
+					'forum_seodescription'	=> array('VCHAR:255', ''),
 				),
 				$this->table_prefix . 'topics'			=> array(
-					'topic_seodescription'				=> array('UINT', 0),
+					'topic_seodescription'	=> array('VCHAR:255', ''),
 				),
 			),
 		);
@@ -56,6 +56,7 @@ class install_user_schema extends \phpbb\db\migration\migration
 	{
 		return array(
 			'drop_columns'	=> array(
+				//@FIXME suppress demo and tests
 				$this->table_prefix . 'users'			=> array(
 					'user_acme',
 				),

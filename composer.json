@@ -2,7 +2,7 @@
     "name": "alexandret/seodescription",
     "type": "phpbb-extension",
     "description": "SEO Meta Description Extension",
-    "homepage": "https://github.com/Alexandre-T/seo-description",
+    "homepage": "https://github.com/Alexandre-T/seodescription",
     "version": "1.0.0-dev",
     "time": "2016-09-02",
     "license": "GPL-2.0",

@@ -20,6 +20,7 @@ class main_module
 	function main($id, $mode)
 	{
 		global $config, $request, $template, $user;
+		//global $phpbb_root_path, $phpbb_admin_path, $phpEx;
 
 		$user->add_lang_ext('alexandret/seodescription', 'common');
 		$this->tpl_name = 'acp_demo_body';
@@ -39,8 +40,12 @@ class main_module
 		}
 
 		$template->assign_vars(array(
-			'U_ACTION'				=> $this->u_action,
-			'ACME_DEMO_GOODBYE'		=> $config['acme_demo_goodbye'],
+			'U_ACTION'				     	=> $this->u_action,
+			'ACME_DEMO_GOODBYE'		     	=> $config['acme_demo_goodbye'],
+			'AT_SEO_DESCRIPTION_ACTIVE'		=> $config['at_seodescription_active'],
+			'AT_SEO_DESCRIPTION_DEFAULT'	=> $config['at_seodescription_default'],
+			'AT_SEO_DESCRIPTION_FORUM'		=> $config['at_seodescription_forum'],
+			'AT_SEO_DESCRIPTION_TOPIC'		=> $config['at_seodescription_topic'],
 		));
 	}
 }
