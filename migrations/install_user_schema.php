@@ -43,10 +43,10 @@ class install_user_schema extends \phpbb\db\migration\migration
 					'user_acme'				=> array('UINT', 0),
 				),
 				$this->table_prefix . 'forums'			=> array(
-					'forum_seodescription'	=> array('VCHAR:255', ''),
+					'forum_seodescription'	=> array('VCHAR_UNI', ''),
 				),
 				$this->table_prefix . 'topics'			=> array(
-					'topic_seodescription'	=> array('VCHAR:255', ''),
+					'topic_seodescription'	=> array('VCHAR_UNI', ''),
 				),
 			),
 		);

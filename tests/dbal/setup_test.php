@@ -16,7 +16,7 @@ namespace alexandret\seodescription\tests\dbal;
 // Need to include functions.php to use phpbb_version_compare in this test
 require_once __DIR__ . '/../../../../../includes/functions.php';
 
-class simple_test extends \phpbb_database_test_case
+class setup_test extends \phpbb_database_test_case
 {
 	static protected function setup_extensions()
 	{
@@ -40,14 +40,32 @@ class simple_test extends \phpbb_database_test_case
 		);
 	}
 
+	public function test_config_text()
+	{
+		//@FIXME test that config_text and config elements are well added.
+		// Stop here and mark this test as incomplete.
+		$this->markTestIncomplete(
+				'simple_test::test_config_text : This test has not been implemented yet.'
+		);
+	}
+
+	public function test_permissions()
+	{
+		//@FIXME test that config_text and config elements are well added.
+		// Stop here and mark this test as incomplete.
+		$this->markTestIncomplete(
+				'simple_test::test_config_text : This test has not been implemented yet.'
+		);
+	}
+
 	public function test_column()
 	{
 		$db_tools = $this->_getDbTools();
 
-		$this->assertTrue($db_tools->sql_column_exists(USERS_TABLE, 'user_acme'), 'Asserting that column "user_acme" exists');
-		$this->assertFalse($db_tools->sql_column_exists(USERS_TABLE, 'user_acme_demo'), 'Asserting that column "user_acme_demo" does not exist');
-		$this->assertFalse($db_tools->sql_column_exists(FORUMS_TABLE, 'forum_seodescription'), 'Asserting that column "forum_seodescription" exists');
-		$this->assertFalse($db_tools->sql_column_exists(TOPICS_TABLE, 'topic_seodescription'), 'Asserting that column "topic_seodescription" exists');
+		$this->assertTrue($db_tools->sql_column_exists(USERS_TABLE, 'user_acme'), 'Asserting that column "user_acme" exists in table '.USERS_TABLE);
+		$this->assertFalse($db_tools->sql_column_exists(USERS_TABLE, 'user_acme_demo'), 'Asserting that column "user_acme_demo" does not exist in table '.USERS_TABLE);
+		$this->assertTrue($db_tools->sql_column_exists(FORUMS_TABLE, 'forum_seodescription'), 'Asserting that column "forum_seodescription" exists in table '.FORUMS_TABLE);
+		$this->assertTrue($db_tools->sql_column_exists(TOPICS_TABLE, 'topic_seodescription'), 'Asserting that column "topic_seodescription" exists in table '.TOPICS_TABLE);
 	}
 
 	private function _getDbTools(){
@@ -64,7 +82,6 @@ class simple_test extends \phpbb_database_test_case
 			$factory = new \phpbb\db\tools\factory();
 			$db_tools = $factory->get($this->db);
 		}
-
 		return $db_tools;
 	}
 }
